@@ -220,6 +220,29 @@ return {
           "buildifier",
         },
       }
+      require("lspconfig").pyright.setup {
+        on_attach = function(client, bufnr)
+          require("lsp").common_on_attach(client, bufnr)
+          require("lsp").formatting_sync(client, bufnr)
+        end,
+
+        settings = {
+          pyright = {
+            disableOrganizeImports = false,
+            openFilesOnly = true,
+            -- disableLanguageServices = true,
+          },
+
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "openFilesOnly",
+              typeCheckingMode = "basic",
+            },
+          },
+        },
+      }
     end,
   },
 }
