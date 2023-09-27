@@ -173,6 +173,8 @@ return {
         },
       },
     },
+    { "folke/neodev.nvim", opts = {} },
+
     {
       "williamboman/mason-lspconfig",
       config = function()
@@ -193,15 +195,49 @@ return {
             -- ts/js
             "tsserver",
             "prettier",
+            "prettierd",
 
             -- shell
             "shellharden",
+            "beautysh",
+            "bashls",
 
             -- nix
             "rnix",
 
             -- go
             "gopls",
+
+            -- cue
+            "cueimports",
+            "dagger",
+
+            -- haskell
+            "hls",
+
+            --docker
+            "docker_compose_language_service",
+            "dockerls",
+
+            -- helm
+            "helm_ls",
+
+            -- html/css
+            "html",
+            "cssls",
+            "emmet_ls",
+
+            --markdown
+            "marksman",
+
+            --terraform
+            "terraformls",
+
+            -- toml
+            "taplo",
+
+            -- bazel
+            "buildifier",
           },
         }
       end,
