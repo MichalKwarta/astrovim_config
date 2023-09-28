@@ -218,6 +218,9 @@ return {
 
           -- bazel
           "buildifier",
+
+          --robot
+          "robotframework-lsp"
         },
       }
       require("lspconfig").pyright.setup {
