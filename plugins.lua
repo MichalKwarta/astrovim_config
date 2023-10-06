@@ -34,7 +34,6 @@ local lsp_tools = {
 
   -- lua
   "lua_ls",
-  "stylua",
 
   -- ts/js
   "tsserver",
