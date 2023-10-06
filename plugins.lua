@@ -1,3 +1,69 @@
+local utils = require "astronvim.utils"
+
+local mason_lsp = {
+  -- python
+  "pyright",
+  "black",
+  "ruff_lsp",
+
+  -- rust
+  "rust_analyzer",
+
+  -- lua
+  "lua_ls",
+  "stylua",
+
+  -- ts/js
+  "tsserver",
+  "prettier",
+  "prettierd",
+
+  -- shell
+  "shellharden",
+  "beautysh",
+  "bashls",
+
+  -- nix
+  "rnix",
+
+  -- go
+  "gopls",
+
+  -- cue
+  "cueimports",
+  "dagger",
+
+  -- haskell
+  "hls",
+
+  --docker
+  "docker_compose_language_service",
+  "dockerls",
+
+  -- helm
+  "helm_ls",
+
+  -- html/css
+  "html",
+  "cssls",
+  "emmet_ls",
+
+  --markdown
+  "marksman",
+
+  --terraform
+  "terraformls",
+
+  -- toml
+  "taplo",
+
+  -- bazel
+  "buildifier",
+
+  --robot
+  "robotframework-lsp",
+}
+
 return {
   {
     "easymotion/vim-easymotion",
@@ -159,69 +225,7 @@ return {
     "williamboman/mason-lspconfig",
     config = function()
       require("mason-lspconfig").setup {
-        ensure_installed = {
-          -- python
-          "pyright",
-          "black",
-          "ruff_lsp",
-
-          -- rust
-          "rust_analyzer",
-
-          -- lua
-          "lua_ls",
-          "stylua",
-
-          -- ts/js
-          "tsserver",
-          "prettier",
-          "prettierd",
-
-          -- shell
-          "shellharden",
-          "beautysh",
-          "bashls",
-
-          -- nix
-          "rnix",
-
-          -- go
-          "gopls",
-
-          -- cue
-          "cueimports",
-          "dagger",
-
-          -- haskell
-          "hls",
-
-          --docker
-          "docker_compose_language_service",
-          "dockerls",
-
-          -- helm
-          "helm_ls",
-
-          -- html/css
-          "html",
-          "cssls",
-          "emmet_ls",
-
-          --markdown
-          "marksman",
-
-          --terraform
-          "terraformls",
-
-          -- toml
-          "taplo",
-
-          -- bazel
-          "buildifier",
-
-          --robot
-          "robotframework-lsp"
-        },
+        ensure_installed = mason_lsp,
       }
       require("lspconfig").pyright.setup {
         on_attach = function(client, bufnr)
@@ -249,6 +253,41 @@ return {
     end,
   },
   {
+    "linux-cultist/venv-selector.nvim",
+    opts = {
+      name = { ".venv" },
+    },
+    keys = { { "<leader>lv", "<cmd>:VenvSelect<cr>", desc = "Select VirtualEnv" } },
+  },
+  {
+    "jay-babu/mason-null-ls.nvim",
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, mason_lsp) end,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = false,
+          show_hidden_count = true,
+          hide_dotfiles = false,
+          hide_gitignored = false,
+          hide_by_name = {
+            ".git",
+            ".DS_Store",
+            "__pycache__",
+            ".pytest_cache",
+            ".mypy_cache",
+            -- '.venv',
+            ".vscode",
+            -- 'thumbs.db',
+          },
+          never_show = {},
+        },
+      },
+    },
+  },
+  {
     "ggandor/leap.nvim",
     enabled = true,
     keys = {
@@ -266,5 +305,33 @@ return {
       vim.keymap.del({ "x", "o" }, "X")
       vim.api.nvim_set_hl(0, "LeapBackdrop", { fg = "grey" })
     end,
+  },
+  {},
+  {
+    "nvim-pack/nvim-spectre",
+
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+
+    keys = {
+      {
+        "<leader>ss",
+        function() require("spectre").toggle() end,
+        desc = "Toggle Spectre",
+      },
+
+      {
+        "<leader>sw",
+        function() require("spectre").open_visual { select_word = true } end,
+        desc = "Search current word",
+      },
+
+      {
+        "<leader>sp",
+        function() require("spectre").open_file_search { select_word = true } end,
+        desc = "Search on current file",
+      },
+    },
   },
 }
