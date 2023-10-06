@@ -1,9 +1,32 @@
 local utils = require "astronvim.utils"
 
-local mason_lsp = {
+local null_ls_tools = {
+
+  "black",
+
+  "stylua",
+
+  -- shell
+  "shellharden",
+  "beautysh",
+
+  --ts/js
+
+  "prettier",
+  "prettierd",
+
+  -- bazel
+  "buildifier",
+
+  --robot
+  "robotframework-lsp",
+
+  --cue
+  "cueimports",
+}
+local lsp_tools = {
   -- python
   "pyright",
-  "black",
   "ruff_lsp",
 
   -- rust
@@ -15,12 +38,8 @@ local mason_lsp = {
 
   -- ts/js
   "tsserver",
-  "prettier",
-  "prettierd",
 
   -- shell
-  "shellharden",
-  "beautysh",
   "bashls",
 
   -- nix
@@ -30,7 +49,6 @@ local mason_lsp = {
   "gopls",
 
   -- cue
-  "cueimports",
   "dagger",
 
   -- haskell
@@ -56,12 +74,6 @@ local mason_lsp = {
 
   -- toml
   "taplo",
-
-  -- bazel
-  "buildifier",
-
-  --robot
-  "robotframework-lsp",
 }
 
 return {
@@ -225,7 +237,7 @@ return {
     "williamboman/mason-lspconfig",
     config = function()
       require("mason-lspconfig").setup {
-        ensure_installed = mason_lsp,
+        ensure_installed = lsp_tools,
       }
       require("lspconfig").pyright.setup {
         on_attach = function(client, bufnr)
@@ -261,7 +273,7 @@ return {
   },
   {
     "jay-babu/mason-null-ls.nvim",
-    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, mason_lsp) end,
+    opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, null_ls_tools) end,
   },
   {
     "nvim-neo-tree/neo-tree.nvim",
