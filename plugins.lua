@@ -1,7 +1,10 @@
 local utils = require "astronvim.utils"
 
-local null_ls_tools = {
+local tree_sitter_tools = {
+  "nix",
+}
 
+local null_ls_tools = {
   "black",
 
   "stylua",
@@ -76,6 +79,25 @@ local lsp_tools = {
 }
 
 return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      if opts.ensure_installed ~= "all" then
+        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, tree_sitter_tools)
+      end
+    end,
+  },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    opts = function(_, opts)
+      local nls = require "null-ls"
+      if type(opts.sources) == "table" then
+        vim.list_extend(opts.sources, {
+          nls.builtins.code_actions.statix,
+        })
+      end
+    end,
+  },
   {
     "easymotion/vim-easymotion",
     config = function() require("easymotion").set_default_keymaps() end,
