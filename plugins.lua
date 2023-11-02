@@ -10,7 +10,7 @@ local null_ls_tools = {
   "stylua",
 
   -- shell
-  "shellharden",
+  -- "shellharden", ##disable this, it's destructive
   "beautysh",
 
   --ts/js
