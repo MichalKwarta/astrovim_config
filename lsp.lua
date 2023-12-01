@@ -1,3 +1,5 @@
+local lspconfig = require "lspconfig"
+
 return {
   formatting = {
     format_on_save = {

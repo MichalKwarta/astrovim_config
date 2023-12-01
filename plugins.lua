@@ -40,7 +40,7 @@ local lsp_tools = {
   "lua_ls",
 
   -- ts/js
-  "tsserver",
+  -- "tsserver",
 
   -- shell
   "bashls",
@@ -80,11 +80,22 @@ local lsp_tools = {
   "taplo",
 }
 
+local astro_packs = { "rust", "typescript" }
+
+astro_packs.assemble = function()
+  local packs = {}
+  for _, pack in ipairs(astro_packs) do
+    packs[#packs + 1] = { import = "astrocommunity.pack." .. pack }
+  end
+  return packs
+end
+
 return {
   {
     "AstroNvim/astrocommunity",
-    { import = "astrocommunity.pack.rust" },
-    { import = "astrocommunity.workflow.hardtime-nvim" },
+    astro_packs.assemble(),
+    -- astro_packs.map(function(pack) return { import = "astrocommunity.pack." .. pack } end),
+    -- { import = "astrocommunity.workflow.hardtime-nvim" },
   },
   {
     "nvim-treesitter/nvim-treesitter",
