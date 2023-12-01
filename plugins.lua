@@ -33,7 +33,8 @@ local lsp_tools = {
   "ruff_lsp",
 
   -- rust
-  "rust_analyzer",
+  -- handled via astrocommunity
+  -- "rust_analyzer",
 
   -- lua
   "lua_ls",
@@ -45,7 +46,8 @@ local lsp_tools = {
   "bashls",
 
   -- nix
-  "rnix",
+  -- "rnix",
+  "nil_ls",
 
   -- go
   "gopls",
@@ -79,6 +81,11 @@ local lsp_tools = {
 }
 
 return {
+  {
+    "AstroNvim/astrocommunity",
+    { import = "astrocommunity.pack.rust" },
+    { import = "astrocommunity.workflow.hardtime-nvim" },
+  },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
