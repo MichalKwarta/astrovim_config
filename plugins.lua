@@ -95,7 +95,7 @@ return {
     "AstroNvim/astrocommunity",
     astro_packs.assemble(),
     -- astro_packs.map(function(pack) return { import = "astrocommunity.pack." .. pack } end),
-    -- { import = "astrocommunity.workflow.hardtime-nvim" },
+    { import = "astrocommunity.workflow.hardtime-nvim" },
   },
   {
     "nvim-treesitter/nvim-treesitter",
