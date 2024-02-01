@@ -1,9 +1,5 @@
 local utils = require "astronvim.utils"
 
-local tree_sitter_tools = {
-  "nix",
-}
-
 local null_ls_tools = {
   "black",
 
@@ -45,10 +41,6 @@ local lsp_tools = {
   -- shell
   "bashls",
 
-  -- nix
-  -- "rnix",
-  "nil_ls",
-
   -- go
   "gopls",
 
@@ -80,7 +72,7 @@ local lsp_tools = {
   "taplo",
 }
 
-local astro_packs = { "rust", "typescript" }
+local astro_packs = { "rust", "typescript", "nix" }
 
 astro_packs.assemble = function()
   local packs = {}
@@ -94,9 +86,27 @@ return {
   {
     "AstroNvim/astrocommunity",
     astro_packs.assemble(),
-    -- astro_packs.map(function(pack) return { import = "astrocommunity.pack." .. pack } end),
-    { import = "astrocommunity.workflow.hardtime-nvim" },
   },
+  -- {
+  --   "m4xshen/hardtime.nvim",
+  --   event = "User AstroFile",
+  --   opts = {
+  --     disable_mouse = false,
+  --     max_count = 5,
+  --     restriction_mode = "hint",
+  --     disabled_keys = {
+  --       ["<Up>"] = {},
+  --       ["<Down>"] = {},
+  --       ["<Left>"] = {},
+  --       ["<Right>"] = {},
+  --     },
+  --   },
+  --   config = function(_, opts)
+  --     require("hardtime").setup(opts)
+  --
+  --     require("hardtime").enable(opts)
+  --   end,
+  -- },
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
@@ -123,16 +133,20 @@ return {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
+    build = ":Copilot auth",
     event = "InsertEnter",
-    config = function()
-      require("copilot").setup {
-        suggestion = {
+    opts = {
+      suggestion = {
+        enabled = true,
+        auto_trigger = true,
+        debounce = 75,
+      },
+      filetypes = {
+        ["*"] = {
           enabled = true,
-          auto_trigger = true,
-          debounce = 75,
         },
-      }
-    end,
+      },
+    },
   },
   {
     "wakatime/vim-wakatime",
