@@ -16,7 +16,15 @@ return {
       opts = {
         mappings = {
           n = {
-            ["<Leader>T"] = {},
+            ["<Leader>Td"] = false,
+            ["<Leader>T"] = false,
+            ["<Leader>Tt"] = false,
+            ["<Leader>Tf"] = false,
+            ["<Leader>T<CR>"] = false,
+            ["<Leader>To"] = false,
+            ["<Leader>Tp"] = false,
+            ["<Leader>TO"] = false,
+
             [prefix] = { desc = "󰗇 neotest" },
             [prefix .. "r"] = { function() require("neotest").run.run() end, desc = "Run nearest" },
             [prefix .. "d"] = { function() require("neotest").run.run { strategy = "dap" } end, desc = "Debug test" },

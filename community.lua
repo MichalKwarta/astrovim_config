@@ -33,7 +33,6 @@ local astro_packs = {
     "nvim-spectre",
   },
 }
-
 function assemble_packs(packs)
   local importTable = {}
   for packType, packList in pairs(packs) do
