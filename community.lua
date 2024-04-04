@@ -3,38 +3,50 @@
 -- This guarantees that the specs are processed before any user plugins.
 
 local astro_packs = {
-  "bash",
-  "cue",
-  "docker",
-  "go",
-  "helm",
-  "html-css",
-  "json",
-  "lua",
-  "markdown",
-  "nix",
-  "rust",
-  "scala",
-  "terraform",
-  "typescript",
-  "yaml",
+  pack = {
+    "bash",
+    "cue",
+    "docker",
+    "go",
+    "helm",
+    "html-css",
+    "json",
+    "lua",
+    "markdown",
+    "nix",
+    "rust",
+    "scala",
+    "terraform",
+    "typescript",
+    "yaml",
+  },
+  test = {
+    "neotest",
+  },
+  colorscheme = {
+    "kanagawa-nvim",
+  },
+  lsp = {
+    "lsp-signature-nvim",
+  },
+  project = {
+    "nvim-spectre",
+  },
 }
 
-astro_packs.assemble = function()
-  local packs = {}
-  for _, pack in ipairs(astro_packs) do
-    table.insert(packs, { import = "astrocommunity.pack." .. pack })
+function assemble_packs(packs)
+  local importTable = {}
+  for packType, packList in pairs(packs) do
+    for _, package in ipairs(packList) do
+      table.insert(importTable, { import = "astrocommunity." .. packType .. "." .. package })
+    end
   end
-  return packs
+  return importTable
 end
 
 local community = {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.colorscheme.kanagawa-nvim" },
-  { import = "astrocommunity.lsp.lsp-signature-nvim" },
-  { import = "astrocommunity.test.neotest" },
-  { import = "astrocommunity.project.nvim-spectre" },
-  astro_packs.assemble(),
+  assemble_packs(astro_packs),
 }
 
 return community
