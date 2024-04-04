@@ -27,11 +27,9 @@ return {
       })
     end,
     config = function()
-      require("mason-lspconfig").setup {
-        ensure_installed = lsp_tools,
-      }
       local lspconfig = require "lspconfig"
       lspconfig.gopls.setup {
+
         settings = {
           gopls = {
             gofumpt = true,
@@ -80,9 +78,7 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "prettier",
         "prettierd",
-        "stylua",
         "buildifier",
 
         -- add more arguments for adding more null-ls sources
@@ -95,7 +91,6 @@ return {
     opts = function(_, opts)
       -- add more things to the ensure_installed table protecting against community packs modifying it
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-        "python",
         -- add more arguments for adding more debuggers
       })
     end,
