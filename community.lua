@@ -2,8 +2,22 @@
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
 
-local astro_packs =
-  { "rust", "typescript", "lua", "go", "cue", "docker", "nix", "helm", "markdown", "yaml", "json", "html-css" }
+local astro_packs = {
+  "rust",
+  "typescript",
+  "lua",
+  "go",
+  "cue",
+  "docker",
+  "nix",
+  "helm",
+  "markdown",
+  "yaml",
+  "json",
+  "html-css",
+  "scala",
+  "terraform",
+}
 
 astro_packs.assemble = function()
   local packs = {}
