@@ -18,7 +18,9 @@ local astro_packs = {
     "scala",
     "terraform",
     "typescript",
+    "python-ruff",
     "yaml",
+    "vue",
   },
   test = {
     "neotest",
