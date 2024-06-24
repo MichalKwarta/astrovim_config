@@ -1,0 +1,1 @@
+/nix/store/qyg5hd92mafk1fy7hm50d2il666dmvky-home-manager-files/.config/nvim/lua/plugins/none-ls.lua
