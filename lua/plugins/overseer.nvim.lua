@@ -43,7 +43,12 @@ return {
 				local maps = opts.mappings
 				local prefix = "<leader>m"
 
-				maps.n["<leader>M"] = false -- Disable default mapping
+				-- clear old mappings
+				local oldPrefix = "<leader>M"
+				for _, key in ipairs({ "", "t", "c", "r", "R", "q", "a", "i" }) do
+					maps.n[oldPrefix .. key] = false
+				end
+
 				maps.n[prefix] = { desc = require("astroui").get_icon("Overseer", 1, true) .. "Overseer" }
 
 				maps.n[prefix .. "t"] = { "<Cmd>OverseerToggle<CR>", desc = "Toggle Overseer" }
