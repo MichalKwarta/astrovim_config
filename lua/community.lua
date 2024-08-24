@@ -31,7 +31,7 @@ local astro_packs = {
   lsp = {
     "lsp-signature-nvim",
   },
-  project = {
+  search = {
     "nvim-spectre",
   },
   -- workflow = {
