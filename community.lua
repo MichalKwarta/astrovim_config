@@ -3,20 +3,21 @@
 -- This guarantees that the specs are processed before any user plugins.
 
 local astro_packs = {
-  "rust",
-  "typescript",
-  "lua",
-  "go",
+  "bash",
   "cue",
   "docker",
-  "nix",
+  "go",
   "helm",
-  "markdown",
-  "yaml",
-  "json",
   "html-css",
+  "json",
+  "lua",
+  "markdown",
+  "nix",
+  "rust",
   "scala",
   "terraform",
+  "typescript",
+  "yaml",
 }
 
 astro_packs.assemble = function()
@@ -33,7 +34,7 @@ local community = {
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.project.nvim-spectre" },
+  astro_packs.assemble(),
 }
-table.insert(community, astro_packs.assemble())
 
 return community
