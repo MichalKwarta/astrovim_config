@@ -11,56 +11,12 @@ return {
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
         -- python
         "pyright",
-
         -- toml
         "gopls",
+        "lua_ls",
 
         -- add more arguments for adding more language servers
       })
-    end,
-    config = function()
-      local lspconfig = require "lspconfig"
-      lspconfig.gopls.setup {
-
-        settings = {
-          gopls = {
-            gofumpt = true,
-            hints = {
-              assignVariableTypes = true,
-              compositeLiteralFields = true,
-              compositeLiteralTypes = true,
-              constantValues = true,
-              functionTypeParameters = true,
-              parameterNames = true,
-              rangeVariableTypes = true,
-            },
-          },
-        },
-      }
-
-      lspconfig.pyright.setup {
-        on_attach = function(client, bufnr)
-          require("lsp").common_on_attach(client, bufnr)
-          require("lsp").formatting_sync(client, bufnr)
-        end,
-
-        settings = {
-          pyright = {
-            disableOrganizeImports = false,
-            openFilesOnly = true,
-            -- disableLanguageServices = true,
-          },
-
-          python = {
-            analysis = {
-              autoSearchPaths = true,
-              useLibraryCodeForTypes = true,
-              diagnosticMode = "openFilesOnly",
-              typeCheckingMode = "basic",
-            },
-          },
-        },
-      }
     end,
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
