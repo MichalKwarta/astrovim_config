@@ -34,6 +34,9 @@ local astro_packs = {
   project = {
     "nvim-spectre",
   },
+  workflow = {
+    "hardtime-nvim",
+  },
 }
 function assemble_packs(packs)
   local importTable = {}
