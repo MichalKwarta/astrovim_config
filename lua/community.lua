@@ -25,6 +25,9 @@ local astro_packs = {
 	test = {
 		"neotest",
 	},
+	recipes = {
+		"telescope-lsp-mappings",
+	},
 	colorscheme = {
 		"kanagawa-nvim",
 	},
