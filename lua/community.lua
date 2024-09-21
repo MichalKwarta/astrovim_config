@@ -2,6 +2,23 @@
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
 
+---@param tab table table with astropacks grouped by type
+---@param path string? path to the current element with default valuel of ""
+---@param result table? table to store the result
+-- @return table
+function assemble_packs(tab, path, result)
+	result = result or {}
+	path = path or "astrocommunity"
+	for k, v in pairs(tab) do
+		if type(v) == "table" then
+			assemble_packs(v, path .. "." .. k, result)
+		else
+			result[#result + 1] = { import = path .. "." .. v }
+		end
+	end
+	return result
+end
+
 local astro_packs = {
 	pack = {
 		"bash",
@@ -53,15 +70,6 @@ local astro_packs = {
 	--   "hardtime-nvim",
 	-- },
 }
-function assemble_packs(packs)
-	local importTable = {}
-	for packType, packList in pairs(packs) do
-		for _, package in ipairs(packList) do
-			table.insert(importTable, { import = "astrocommunity." .. packType .. "." .. package })
-		end
-	end
-	return importTable
-end
 
 local community = {
 	"AstroNvim/astrocommunity",
