@@ -8,18 +8,19 @@ local astro_packs = {
 		"cue",
 		"docker",
 		"go",
-		"haskell",
+		-- "haskell", - needs additonal workarounds to install haskell stuff on nix
 		"helm",
 		"html-css",
 		"json",
 		"lua",
 		"markdown",
 		"nix",
-		"ocaml",
+		-- "ocaml"
 		"python-ruff",
 		"rust",
 		"scala",
 		"sql",
+		"mdx",
 		"terraform",
 		"typescript-all-in-one",
 		"vue",
@@ -43,6 +44,10 @@ local astro_packs = {
 
 	["code-runner"] = {
 		"overseer-nvim",
+	},
+	["neovim-lua-development"] = {
+		"lazydev-nvim",
+		"helpview-nvim",
 	},
 	-- workflow = {
 	--   "hardtime-nvim",
