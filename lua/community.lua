@@ -63,7 +63,6 @@ local astro_packs = {
 		"overseer-nvim",
 	},
 	["neovim-lua-development"] = {
-		"lazydev-nvim",
 		"helpview-nvim",
 	},
 	-- workflow = {
