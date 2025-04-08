@@ -52,6 +52,12 @@ local astro_packs = {
 	colorscheme = {
 		"kanagawa-nvim",
 	},
+	["file-explorer"] = {
+		"oil-nvim",
+	},
+	game = {
+		"leetcode-nvim",
+	},
 	lsp = {
 		"lsp-signature-nvim",
 	},
