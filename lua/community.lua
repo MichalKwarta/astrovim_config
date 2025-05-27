@@ -49,6 +49,12 @@ local astro_packs = {
 	recipes = {
 		"telescope-lsp-mappings",
 	},
+	["bars-and-lines"] = {
+		"vim-illuminate",
+	},
+	diagnostics = {
+		"lsp-lines",
+	},
 	colorscheme = {
 		"kanagawa-nvim",
 	},
