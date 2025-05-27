@@ -53,7 +53,7 @@ local astro_packs = {
 		"vim-illuminate",
 	},
 	diagnostics = {
-		"lsp-lines",
+		"lsp_lines-nvim",
 	},
 	colorscheme = {
 		"kanagawa-nvim",
