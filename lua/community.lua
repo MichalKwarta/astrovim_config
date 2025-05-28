@@ -54,6 +54,7 @@ local astro_packs = {
 	},
 	diagnostics = {
 		"lsp_lines-nvim",
+		"trouble-nvim",
 	},
 	colorscheme = {
 		"kanagawa-nvim",
