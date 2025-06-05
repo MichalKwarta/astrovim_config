@@ -78,9 +78,10 @@ local astro_packs = {
 	["neovim-lua-development"] = {
 		"helpview-nvim",
 	},
-	-- workflow = {
-	--   "hardtime-nvim",
-	-- },
+	workflow = {
+		--   "hardtime-nvim",
+		"precognition-nvim",
+	},
 }
 
 local community = {
