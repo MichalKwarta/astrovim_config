@@ -59,6 +59,9 @@ local astro_packs = {
 	colorscheme = {
 		"kanagawa-nvim",
 	},
+	completion = {
+		"avante-nvim",
+	},
 	["file-explorer"] = {
 		"oil-nvim",
 	},
@@ -70,6 +73,12 @@ local astro_packs = {
 	},
 	search = {
 		"nvim-spectre",
+	},
+	media = {
+		"codesnap-nvim",
+	},
+	utility = {
+		"live-server-nvim",
 	},
 
 	["code-runner"] = {
