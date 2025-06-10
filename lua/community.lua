@@ -80,7 +80,6 @@ local astro_packs = {
 	},
 	workflow = {
 		--   "hardtime-nvim",
-		"precognition-nvim",
 	},
 }
 
