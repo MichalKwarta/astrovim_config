@@ -20,6 +20,37 @@ function assemble_packs(tab, path, result)
 end
 
 local astro_packs = {
+	["bars-and-lines"] = {
+		"vim-illuminate",
+	},
+	colorscheme = {
+		"kanagawa-nvim",
+	},
+	completion = {
+		"avante-nvim",
+	},
+	["code-runner"] = {
+		"overseer-nvim",
+	},
+	diagnostics = {
+		"lsp_lines-nvim",
+		"trouble-nvim",
+	},
+	["file-explorer"] = {
+		"oil-nvim",
+	},
+	game = {
+		"leetcode-nvim",
+	},
+	lsp = {
+		"lsp-signature-nvim",
+	},
+	media = {
+		"codesnap-nvim",
+	},
+	["neovim-lua-development"] = {
+		"helpview-nvim",
+	},
 	pack = {
 		"bash",
 		"cue",
@@ -31,61 +62,29 @@ local astro_packs = {
 		"json",
 		"lua",
 		"markdown",
+		"mdx",
 		"nix",
 		-- "ocaml"
 		"python-ruff",
 		"rust",
 		"scala",
 		"sql",
-		"mdx",
 		"terraform",
 		"typescript-all-in-one",
 		"vue",
 		"yaml",
 	},
-	test = {
-		"neotest",
-	},
 	recipes = {
 		"telescope-lsp-mappings",
-	},
-	["bars-and-lines"] = {
-		"vim-illuminate",
-	},
-	diagnostics = {
-		"lsp_lines-nvim",
-		"trouble-nvim",
-	},
-	colorscheme = {
-		"kanagawa-nvim",
-	},
-	completion = {
-		"avante-nvim",
-	},
-	["file-explorer"] = {
-		"oil-nvim",
-	},
-	game = {
-		"leetcode-nvim",
-	},
-	lsp = {
-		"lsp-signature-nvim",
 	},
 	search = {
 		"nvim-spectre",
 	},
-	media = {
-		"codesnap-nvim",
+	test = {
+		"neotest",
 	},
 	utility = {
 		"live-server-nvim",
-	},
-
-	["code-runner"] = {
-		"overseer-nvim",
-	},
-	["neovim-lua-development"] = {
-		"helpview-nvim",
 	},
 	workflow = {
 		--   "hardtime-nvim",
