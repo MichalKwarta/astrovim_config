@@ -42,6 +42,21 @@ return {
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
+      nixd = {
+        settings = {
+          nixd = {
+            options = {
+              darwin = {
+                expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.Michas-MacBook-Pro.options',
+              },
+              ["home-manager"] = {
+                expr = '(builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations.Michas-MacBook-Pro.options',
+              },
+            },
+          },
+        },
+      },
+
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
     },
     -- customize how language servers are attached
