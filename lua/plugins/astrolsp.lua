@@ -50,7 +50,7 @@ return {
                 expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.Michas-MacBook-Pro.options',
               },
               ["home-manager"] = {
-                expr = '(builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations.Michas-MacBook-Pro.options',
+                expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.Michas-MacBook-Pro.options.home-manager.users.type.getSubOptions []',
               },
             },
           },
