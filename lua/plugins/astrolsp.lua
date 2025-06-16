@@ -43,9 +43,13 @@ return {
     ---@diagnostic disable: missing-fields
     config = {
       nixd = {
+
         settings = {
           nixd = {
             options = {
+              nixpkgs = {
+                expr = "import <nixpkgs> { }",
+              },
               darwin = {
                 expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.Michas-MacBook-Pro.options',
               },
