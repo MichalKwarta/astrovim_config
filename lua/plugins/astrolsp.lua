@@ -51,10 +51,10 @@ return {
                 expr = "import <nixpkgs> { }",
               },
               darwin = {
-                expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.Michas-MacBook-Pro.options',
+                expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.michalkwarta.options',
               },
               ["home-manager"] = {
-                expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.Michas-MacBook-Pro.options.home-manager.users.type.getSubOptions []',
+                expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.michalkwarta.options.home-manager.users.type.getSubOptions []',
               },
             },
           },
