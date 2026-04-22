@@ -1,4 +1,3 @@
-
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
 -- Configuration documentation can be found with `:h astrolsp`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -44,24 +43,22 @@ return {
     -- client specific configuration can also go in `lsp/` in your configuration root (see `:h lsp-config`)
     config = {
       nixd = {
-      settings = {
-                nixd = {
-                  options = {
-                    nixpkgs = {
-                      expr = "import <nixpkgs> { }",
-                    },
-                    darwin = {
-                      expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.michalkwarta.options',
-                    },
-                    ["home-manager"] = {
-                      expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.michalkwarta.options.home-manager.users.type.getSubOptions []',
-                    },
-                  },
-                },
+        settings = {
+          nixd = {
+            options = {
+              nixpkgs = {
+                expr = "import <nixpkgs> { }",
+              },
+              darwin = {
+                expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.michalkwarta.options',
+              },
+              ["home-manager"] = {
+                expr = '(builtins.getFlake ("git+file://" + toString ./.)).darwinConfigurations.michalkwarta.options.home-manager.users.type.getSubOptions []',
               },
             },
-      }
-      -- ["*"] = { capabilities = {} }, -- modify default LSP client settings such as capabilities
+          },
+        },
+      },
     },
     -- customize how language servers are attached
     handlers = {
