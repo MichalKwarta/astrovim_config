@@ -23,6 +23,9 @@ local astro_packs = {
   ["bars-and-lines"] = {
     "vim-illuminate",
   },
+  ["markdown-and-latex"] = {
+    "render-markdown-nvim",
+  },
   colorscheme = {
     "kanagawa-nvim",
   },
